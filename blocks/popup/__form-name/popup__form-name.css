@@ -2,10 +2,9 @@
     margin: 0;
     padding: 0;
     margin-left: 36px;
-    margin-top: 34px;
+    padding-top: 34px;
     margin-bottom: 24px;
     text-align: left;
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 900;
     font-size: 24px;
@@ -16,7 +15,8 @@
 @media screen and (max-width: 720px) {
     .popup__form-name {
         text-align: center;
-        margin: 25px 22px 45px 22px;
+        padding-top: 25px;
+        margin: 0 22px 45px 22px;
         font-size: 18px;
         line-height: 22px;
     }
