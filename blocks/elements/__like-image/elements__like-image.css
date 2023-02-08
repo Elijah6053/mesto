@@ -1,0 +1,11 @@
+.elements__like-image {
+    padding: 0;
+    margin: 0;
+    height: 19px;
+    overflow: hidden;
+    transition: opacity 0.23s;
+}
+
+.elements__like-image:hover {
+    opacity: .5;
+  }
