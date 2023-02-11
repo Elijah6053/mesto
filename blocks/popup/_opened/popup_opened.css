@@ -1,8 +1,8 @@
 .popup_opened{
-    display: block;
+    display: flex;
     min-width: 320px;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     position: fixed;
     top: 0;
     right: 0;
