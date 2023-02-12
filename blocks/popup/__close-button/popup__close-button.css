@@ -24,7 +24,7 @@
     transition: opacity 0.23s;
     /*margin-left: 8px;*/
     left: 40px;
-    bottom: 40px
+    bottom: 40px;
 }
 
 .popup__close-button:hover {
