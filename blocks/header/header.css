@@ -2,5 +2,10 @@
     margin: auto;
     margin-top: 45px;
     border-bottom: rgba(84, 84, 84, 0.7) 1px solid;
-    max-height: 74px;
+}
+
+@media screen and (max-width: 720px) {
+    .header {
+        margin-top: 28px;
+    }
 }
