@@ -1,12 +1,12 @@
 let editbutton = document.querySelector('.profile__edit-button');
 let popup = document.querySelector('.popup');
-let form = document.querySelector('.popup__container');
+let form = document.querySelector('.popup__form');
 let closeformbutton = document.querySelector('.popup__close-button');
 
 let profilename = document.querySelector('.profile__name')
 let profiledescription = document.querySelector('.profile__job')
-let nameInput = document.querySelector('.popup__form-input_name')
-let jobInput = document.querySelector('.popup__form-input_job')
+let nameInput = document.querySelector('.popup__form-input_type_name')
+let jobInput = document.querySelector('.popup__form-input_type_job')
 
 
 function openform() {
