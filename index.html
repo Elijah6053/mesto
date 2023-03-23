@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Место</title>
+</head>
+<body class="page">
+  <header class="header">
+      <img class="header__logo" src="./images/logo_white.svg" alt="Логотип">        
+  </header>
+  <main class="content">
+    <section class="profile">
+      <div class="profile__avatar">
+        <img class="profile__image" src="./images/avatar.svg" alt="Аватар">
+      </div>
+      <div class="profile__info">
+        <div class="profile__text">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <p class="profile__job">Исследователь океана</p>
+        </div>
+        <button class="profile__edit-button" type="button">
+          <img src="./images/pencil.svg" class="profile__edit-button-image" alt="Карандаш">
+        </button>
+      </div>
+      <button class="profile__add-button" type="button">
+        <img src="./images/plus.svg" alt="Плюс">
+      </button>
+    </section>
+    <section class="elements">
+      <!-- <div class="elements__element">
+        <img class='elements__photo' src="images/dombay.jpg" alt="Пользовательская фотографиия">
+        <div class="elements__underphoto">
+          <h2 class="elements__text">Домбай</h2>
+          <button class = "elements__like-button" type="button">
+            <img class = "elements__like-image" src="images/heart.svg" alt="Лайк">
+          </button>
+        </div>
+      </div>
+      <div class="elements__element">
+        <img class='elements__photo' src="images/elbrus.jpg" alt="Пользовательская фотографиия">
+        <div class="elements__underphoto">
+          <h2 class="elements__text">Гора Элбьрус</h2>
+          <button class = "elements__like-button" type="button">
+            <img class = "elements__like-image" src="images/heart.svg" alt="Лайк">
+          </button>
+        </div>
+      </div>
+      <div class="elements__element">
+        <img class='elements__photo' src="images/karachaevsk.jpg" alt="Пользовательская фотографиия">
+        <div class="elements__underphoto">
+          <h2 class="elements__text">Карачаевск</h2>
+          <button class = "elements__like-button" type="button">
+            <img class = "elements__like-image" src="images/heart.svg" alt="Лайк">
+          </button>
+        </div>
+      </div>
+      <div class="elements__element">
+        <img class='elements__photo' src="images/karachaevsk.jpg" alt="Пользовательская фотографиия">
+        <div class="elements__underphoto">
+          <h2 class="elements__text">Карачаево-Черкесия</h2>
+          <button class = "elements__like-button" type="button">
+            <img class = "elements__like-image" src="images/heart.svg" alt="Лайк">
+          </button>
+        </div>
+      </div>
+      <div class="elements__element">
+        <img class='elements__photo' src="images/elbrus.jpg" alt="Пользовательская фотографиия">
+        <div class="elements__underphoto">
+          <h2 class="elements__text">Гора Элбьрус</h2>
+          <button class = "elements__like-button" type="button">
+            <img class = "elements__like-image" src="images/heart.svg" alt="Лайк">
+          </button>
+        </div>
+      </div>
+      <div class="elements__element">
+        <img class='elements__photo' src="images/dombay.jpg" alt="Пользовательская фотографиия">
+        <div class="elements__underphoto">
+          <h2 class="elements__text">Домбай</h2>
+          <button class = "elements__like-button" type="button">
+            <img class = "elements__like-image" src="images/heart.svg" alt="Лайк">
+          </button>
+        </div>
+      </div> -->
+    </section>
+  </main>
+  <footer class="footer">
+  <p class="footer__copyright">© 2020 Mesto Russia</p>
+  </footer>
+  <div class="popup">
+    <div class="popup__container">
+      <button class="popup__close-button" type="button">
+        <img class="popup__close-button-image" src="./images/Close_Icon.svg" alt="Крестик">
+      </button>
+      <h3 class="popup__form-name">Редактировать профиль</h3>
+      <form class="popup__form" name="profileEditForm">
+        <input type="text" class="popup__form-input popup__form-input_type_name" name="formName" placeholder="Имя">
+        <input type="text" class="popup__form-input popup__form-input_type_job" name="formJob" placeholder="О себе">
+        <button class="popup__save-button" type="submit">
+          Сохранить
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="popup-add">
+    <div class="popup-add__container">
+      <button class="popup-add__close-button" type="button">
+        <img class="popup-add__close-button-image" src="./images/Close_Icon.svg" alt="Крестик">
+      </button>
+      <h3 class="popup-add__form-name">Новое место</h3>
+      <form class="popup-add__form" name="profileEditForm">
+        <input type="text" class="popup-add__form-input popup-add__form-input_type_name" name="formName" placeholder="Название">
+        <input type="text" class="popup-add__form-input popup-add__form-input_type_job" name="formJob" placeholder="Ссылка на картинку">
+        <button class="popup-add__save-button" type="submit">
+          Создать
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="popup-view">
+    <div class="popup-view__container">
+      <button class="popup-view__close-button" type="button">
+        <img class="popup-view__close-button-image" src="./images/Close_Icon.svg" alt="Крестик">
+      </button>
+      <img class="popup-view__mesto-image" src='' alt="Пользовательская фотографиия">
+      <h3 class="popup-view__mesto-name"></h3>
+    </div>
+  </div>
+  <template id="mesto-template">
+    <div class="elements__element">
+      <img class='elements__photo' src="" alt="Пользовательская фотографиия">
+      <button class = "elements__delete-button" type="button">
+      </button>
+      <div class="elements__underphoto">
+        <h2 class="elements__text"></h2>
+        <button class = "elements__like-button" type="button">
+        </button>
+      </div>
+    </div> 
+   </template>
+  <script src="./scripts/script.js"></script>
+</body>
+</html>

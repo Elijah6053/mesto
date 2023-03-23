@@ -1,0 +1,17 @@
+.page {
+    max-width: 880px;
+    min-width: 320px;
+    margin: 0 25px;
+    padding: 0 calc((100% - 930px)/2);
+    font-family: 'inter', Arial, sans-serif;
+    background: #000000;
+    color:#FFFFFF;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+@media screen and (max-width: 720px) {
+  .page {
+    margin: 0 0px;
+  }
+}

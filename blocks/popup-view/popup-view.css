@@ -1,0 +1,13 @@
+.popup-view {
+    display: flex;
+    visibility: hidden;
+    min-width: 320px;
+    width: 100vw;
+    height: 100%;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    transition: visibility 0.5s, opacity 0.5s linear;
+}
