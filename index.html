@@ -89,13 +89,13 @@
   <footer class="footer">
   <p class="footer__copyright">© 2020 Mesto Russia</p>
   </footer>
-  <div class="popup">
+  <div class="popup popup_type_form popup_edit-profile">
     <div class="popup__container">
-      <button class="popup__close-button" type="button">
+      <button class="popup__close-button popup__close-button_edit-profile" type="button">
         <img class="popup__close-button-image" src="./images/Close_Icon.svg" alt="Крестик">
       </button>
       <h3 class="popup__form-name">Редактировать профиль</h3>
-      <form class="popup__form" name="profileEditForm">
+      <form class="popup__form popup__form_edit-profile" name="profileEditForm">
         <input type="text" class="popup__form-input popup__form-input_type_name" name="formName" placeholder="Имя">
         <input type="text" class="popup__form-input popup__form-input_type_job" name="formJob" placeholder="О себе">
         <button class="popup__save-button" type="submit">
@@ -104,28 +104,28 @@
       </form>
     </div>
   </div>
-  <div class="popup-add">
-    <div class="popup-add__container">
-      <button class="popup-add__close-button" type="button">
-        <img class="popup-add__close-button-image" src="./images/Close_Icon.svg" alt="Крестик">
+  <div class="popup popup_type_form popup_add-mesto">
+    <div class="popup__container">
+      <button class="popup__close-button popup__close-button_add-mesto" type="button">
+        <img class="popup__close-button-image" src="./images/Close_Icon.svg" alt="Крестик">
       </button>
-      <h3 class="popup-add__form-name">Новое место</h3>
-      <form class="popup-add__form" name="profileEditForm">
-        <input type="text" class="popup-add__form-input popup-add__form-input_type_name" name="formName" placeholder="Название">
-        <input type="text" class="popup-add__form-input popup-add__form-input_type_job" name="formJob" placeholder="Ссылка на картинку">
-        <button class="popup-add__save-button" type="submit">
+      <h3 class="popup__form-name">Новое место</h3>
+      <form class="popup__form popup__form_add-mesto" name="profileEditForm">
+        <input type="text" class="popup__form-input popup__form-input_type_mesto-name" name="formName" placeholder="Название">
+        <input type="text" class="popup__form-input popup__form-input_type_url" name="formJob" placeholder="Ссылка на картинку">
+        <button class="popup__save-button" type="submit">
           Создать
         </button>
       </form>
     </div>
   </div>
-  <div class="popup-view">
-    <div class="popup-view__container">
-      <button class="popup-view__close-button" type="button">
-        <img class="popup-view__close-button-image" src="./images/Close_Icon.svg" alt="Крестик">
+  <div class="popup popup_type_view">
+    <div class="popup__container">
+      <button class="popup__close-button popup__close-button_view" type="button">
+        <img class="popup__close-button-image" src="./images/Close_Icon.svg" alt="Крестик">
       </button>
-      <img class="popup-view__mesto-image" src='https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg' alt="Пользовательская фотографиия">
-      <h3 class="popup-view__mesto-name"></h3>
+      <img class="popup__mesto-image" src='https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg' alt="Пользовательская фотографиия">
+      <h3 class="popup__mesto-name"></h3>
     </div>
   </div>
   <template id="mesto-template">

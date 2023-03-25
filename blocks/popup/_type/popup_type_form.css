@@ -1,6 +1,5 @@
-.popup-add {
-    display: none;
-    /* display: flex; */
+.popup_type_form {
+    display: flex;
     min-width: 320px;
     width: 100vw;
     height: 100%;
