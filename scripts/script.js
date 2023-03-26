@@ -113,6 +113,7 @@ closeaddformbutton.addEventListener('click', closeaddform);
 
 // Открытие поп апа просмотра
 function openPopupView(mestoName, mestoUrl) {
+  popupViewimg.alt = mestoName;
   popupViewimg.src = mestoUrl;
   popupViewName.textContent = mestoName;
   openPopup(popupView)
@@ -134,6 +135,7 @@ function createMesto(mestoName, mestoUrl) {
 
 
   mestoElement.querySelector('.elements__photo').src = mestoUrl;
+  mestoElement.querySelector('.elements__photo').alt = mestoName;
   mestoElement.querySelector('.elements__text').textContent = mestoName;
   // elements.prepend(mestoElement);
   // лайк
@@ -166,6 +168,9 @@ function handleAddFormSubmit (evt) {
   elementUrl = mestoUrlInput.value
   elements.prepend(createMesto(elementName,elementUrl))
   closeaddform();
+  evt.target.reset()
+  // mestoNameInput.value = ''
+  // mestoUrlInput.value = ''
 }
 
 
