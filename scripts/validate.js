@@ -43,6 +43,7 @@ const checkInputValidity = (input, { invalidInputClass, ...rest }) => {
   const currentInputErrorContainer = document.querySelector(`#${input.id}-error`)
   if (input.checkValidity()) {
     currentInputErrorContainer.textContent = ''
+    input.classList.remove(invalidInputClass)
   } else {
     currentInputErrorContainer.textContent = input.validationMessage
     input.classList.add(invalidInputClass)
