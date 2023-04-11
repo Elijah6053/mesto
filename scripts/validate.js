@@ -1,7 +1,10 @@
-
-
-
-
+const validationConfig = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__form-input',
+  submitButtonSelector: '.popup__save-button',
+  inactiveButtonClass: 'popup__save-button_invalid',
+  invalidInputClass: 'popup__form-input_invalid',
+}
 
 
 
@@ -56,5 +59,4 @@ const enableButton = (button, { inactiveButtonClass }) => {
   button.removeAttribute('disabled')
 }
 
-
-
+enableValidation(validationConfig)
