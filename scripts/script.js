@@ -1,3 +1,14 @@
+const validationConfig = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__form-input',
+  submitButtonSelector: '.popup__save-button',
+  inactiveButtonClass: 'popup__save-button_invalid',
+  invalidInputClass: 'popup__form-input_invalid',
+}
+
+
+enableValidation(validationConfig)
+
 const initialCards = [
   {
     name: 'Архыз',
@@ -54,10 +65,28 @@ const popupViewimg = document.querySelector('.popup__mesto-image');
 
 function openPopup(modal) {
   modal.classList.add('popup_opened')
+  modal.addEventListener("mousedown", closeViaOverlay);
+  document.addEventListener("keydown", closeViaEscape);
 }
 
 function closePopup(modal) {
   modal.classList.remove('popup_opened')
+  modal.removeEventListener("mousedown", closeViaOverlay);
+  document.removeEventListener("keydown", closeViaEscape);
+}
+
+function closeViaEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".popup_opened");
+    closePopup(openedModal);
+  }
+}
+
+function closeViaOverlay(evt) {
+  const openedModal = document.querySelector(".popup_opened");
+  if (evt.target === openedModal) {
+    closePopup(openedModal);
+  }
 }
 
 // функции и листенеры поп апа профиля (работает)
