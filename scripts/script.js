@@ -72,9 +72,8 @@ function closeViaEscape(evt) {
 }
 
 function closeViaOverlay(evt) {
-  const openedModal = document.querySelector(".popup_opened");
-  if (evt.target === openedModal) {
-    closePopup(openedModal);
+  if (evt.target === evt.currentTarget) {
+    closePopup(evt.currentTarget);
   }
 }
 

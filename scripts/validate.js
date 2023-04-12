@@ -12,28 +12,39 @@ const enableValidation = ({ formSelector, ...rest }) => {
   const forms = Array.from(document.querySelectorAll(formSelector))
   forms.forEach(form => {
     form.addEventListener('submit', (evt) => {
-    evt.preventDefault();
+      const formButton = form.querySelector(rest.submitButtonSelector)
+      disableButton(formButton, rest)
     })
     setEventListeners(form, rest)
   })
 }
 
 const setEventListeners = (formToValidate, { inputSelector, submitButtonSelector, ...rest }) => {
-  const formInputs = Array.from(document.querySelectorAll(inputSelector))
+  const formInputs = Array.from(formToValidate.querySelectorAll(inputSelector))
   const formButton = formToValidate.querySelector(submitButtonSelector)
   disableButton(formButton, rest)
   formInputs.forEach(input => {
     input.addEventListener('input', () => {
-      checkInputValidity(input, validationConfig)
+      checkInputValidity(input, rest)
       if (hasInvalidInput(formInputs)) {
         disableButton(formButton, rest)
-      } else {
+      }
+      // if (hasEmptyInput(formInputs)) {
+      //   disableButton(formButton, rest)
+      // }
+       else {
         enableButton(formButton, rest)
       }
     })
   })
 
 }
+
+const hasEmptyInput = (formInputs) => {
+  console.log(123)
+  return formInputs.some(item.textContent == '')
+}
+
 
 const hasInvalidInput = (formInputs) => {
   return formInputs.some(item => !item.validity.valid)
