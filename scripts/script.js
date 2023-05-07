@@ -1,3 +1,13 @@
+import {ElementsListItem, ElementsList} from "./Card.js";
+import {FormValidator} from "./FormValidator.js";
+
+const validationConfig = {
+  inputSelector: '.popup__form-input',
+  submitButtonSelector: '.popup__save-button',
+  inactiveButtonClass: 'popup__save-button_invalid',
+  invalidInputClass: 'popup__form-input_invalid',
+}
+
 const initialCards = [
   {
     name: 'Архыз',
@@ -44,7 +54,7 @@ const mestoNameInput = document.querySelector('.popup__form-input_type_mesto-nam
 const mestoUrlInput = document.querySelector('.popup__form-input_type_url')
 
 
-const elements = document.querySelector('.elements');
+// const elements = document.querySelector('.elements');
 
 const popupView = document.querySelector('.popup_type_view');
 const popupViewName = document.querySelector('.popup__mesto-name');
@@ -129,12 +139,12 @@ closeaddformbutton.addEventListener('click', closeaddform);
 
 
 // Открытие поп апа просмотра
-function openPopupView(mestoName, mestoUrl) {
-  popupViewimg.alt = mestoName;
-  popupViewimg.src = mestoUrl;
-  popupViewName.textContent = mestoName;
-  openPopup(popupView)
-};
+// function openPopupView(mestoName, mestoUrl) {
+//   popupViewimg.alt = mestoName;
+//   popupViewimg.src = mestoUrl;
+//   popupViewName.textContent = mestoName;
+//   openPopup(popupView)
+// };
 
 // Закрытие поп апа просмотра
 
@@ -146,53 +156,59 @@ viewCloseButton.addEventListener('click', closePopupView);
 
 
 
-function createMesto(mestoName, mestoUrl) {
-  const mestoTemplate = document.querySelector('#mesto-template').content;
-  const mestoElement = mestoTemplate.querySelector('.elements__element').cloneNode(true);
+// function createMesto(mestoName, mestoUrl) {
+//   const mestoTemplate = document.querySelector('#mesto-template').content;
+//   const mestoElement = mestoTemplate.querySelector('.elements__element').cloneNode(true);
 
 
-  mestoElement.querySelector('.elements__photo').src = mestoUrl;
-  mestoElement.querySelector('.elements__photo').alt = mestoName;
-  mestoElement.querySelector('.elements__text').textContent = mestoName;
-  // elements.prepend(mestoElement);
-  // лайк
-    mestoElement.querySelector('.elements__like-button').addEventListener('click', () => {
-    mestoElement.querySelector('.elements__like-button').classList.toggle('elements__like-button_acitve');
-  });
-  // удаление
-    mestoElement.querySelector('.elements__delete-button').addEventListener('click', () => {
-    mestoElement.remove();
-  });
-  // открытие попапа
-  mestoElement.querySelector('.elements__photo').addEventListener('click', () => {openPopupView(mestoName, mestoUrl)})
+//   mestoElement.querySelector('.elements__photo').src = mestoUrl;
+//   mestoElement.querySelector('.elements__photo').alt = mestoName;
+//   mestoElement.querySelector('.elements__text').textContent = mestoName;
+//   // elements.prepend(mestoElement);
+//   // лайк
+//     mestoElement.querySelector('.elements__like-button').addEventListener('click', () => {
+//     mestoElement.querySelector('.elements__like-button').classList.toggle('elements__like-button_acitve');
+//   });
+//   // удаление
+//     mestoElement.querySelector('.elements__delete-button').addEventListener('click', () => {
+//     mestoElement.remove();
+//   });
+//   // открытие попапа
+//   mestoElement.querySelector('.elements__photo').addEventListener('click', () => {openPopupView(mestoName, mestoUrl)})
 
-  return mestoElement;
-}
+//   return mestoElement;
+// }
 
 
   
+const elementsList = new ElementsList('.elements')
 
 for (let i = 0; i < initialCards.length; i++) {
-    elementName = initialCards[i].name;
-    elementUrl = initialCards[i].link;
-    // let card = createMesto(elementName,elementUrl)
-    elements.prepend(createMesto(elementName,elementUrl))
+    let elementName = initialCards[i].name;
+    let elementUrl = initialCards[i].link;
+    let card = new ElementsListItem(elementName, elementUrl).getCard();
+    elementsList.addCard(card);
   }
 
 function handleAddFormSubmit (evt) {
   evt.preventDefault();
-  elementName = mestoNameInput.value
-  elementUrl = mestoUrlInput.value
-  elements.prepend(createMesto(elementName,elementUrl))
+  let elementName = mestoNameInput.value
+  let elementUrl = mestoUrlInput.value
+  let card = new ElementsListItem(elementName, elementUrl).getCard();
+  elementsList.addCard(card);
   closeaddform();
   evt.target.reset()
-  // mestoNameInput.value = ''
-  // mestoUrlInput.value = ''
 }
 
 
 
 addform.addEventListener('submit', handleAddFormSubmit); 
 
+const validation1 = new FormValidator(validationConfig, '.popup__form_add-mesto');
+validation1.enableValidation()
+
+const validation2 = new FormValidator(validationConfig, '.popup__form_edit-profile');
+validation2.enableValidation()
 
 
+export {openPopup};
