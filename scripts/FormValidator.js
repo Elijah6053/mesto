@@ -15,7 +15,7 @@ class FormValidator {
       // console.log(this._formSelector)
       this._form.addEventListener('submit', (evt) => {
           // this.formButton = this._form.querySelector(this._submitButtonSelector)
-          this._disableButton(formButton, this._inactiveButtonClass)
+          this._disableButton(this._formButton, this._inactiveButtonClass)
         })
         this._setEventListeners(this._form, this._inputSelector, this._submitButtonSelector, this._inactiveButtonClass)
     }
@@ -53,8 +53,8 @@ class FormValidator {
       }
 
     _disableButton = (button, inactiveButtonClass) => {
-        button.classList.add(inactiveButtonClass)
-        button.setAttribute('disabled', true)
+      button.classList.add(inactiveButtonClass)
+      button.setAttribute('disabled', true)
     }
 
     _enableButton = (button, inactiveButtonClass) => {

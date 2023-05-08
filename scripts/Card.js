@@ -44,6 +44,9 @@ class ElementsListItem {
       this._name = name;
       this._link = link;
       this._template = document.querySelector(templateSelector).content;
+      this._popupView = document.querySelector('.popup_type_view');
+      this._popupViewName = document.querySelector('.popup__mesto-name');
+      this._popupViewimg = document.querySelector('.popup__mesto-image'); 
   }
 
   _onLike = () => {
@@ -55,9 +58,9 @@ class ElementsListItem {
   }
 
   _onPopup = () => {
-    this._popupView = document.querySelector('.popup_type_view');
-    this._popupViewName = document.querySelector('.popup__mesto-name');
-    this._popupViewimg = document.querySelector('.popup__mesto-image'); 
+    // this._popupView = document.querySelector('.popup_type_view');
+    // this._popupViewName = document.querySelector('.popup__mesto-name');
+    // this._popupViewimg = document.querySelector('.popup__mesto-image'); 
     this._popupViewimg.alt = this._name;
     this._popupViewimg.src = this._link;
     this._popupViewName.textContent = this._name;

@@ -35,21 +35,21 @@ const initialCards = [
   }
 ];
 
-const editbutton = document.querySelector('.profile__edit-button');
+const editButton = document.querySelector('.profile__edit-button');
 const popupProfile = document.querySelector('.popup_edit-profile');
 const editForm = document.querySelector('.popup__form_edit-profile');
-const closeformbutton = document.querySelector('.popup__close-button_edit-profile');
-const profilename = document.querySelector('.profile__name')
-const profiledescription = document.querySelector('.profile__job')
+const closeFormButton = document.querySelector('.popup__close-button_edit-profile');
+const profileName = document.querySelector('.profile__name')
+const profileDescription = document.querySelector('.profile__job')
 const nameInput = document.querySelector('.popup__form-input_type_name')
 const jobInput = document.querySelector('.popup__form-input_type_job')
 
 
 
-const addbutton = document.querySelector('.profile__add-button');
-const popupadd = document.querySelector('.popup_add-mesto');
-const addform = document.querySelector('.popup__form_add-mesto');
-const closeaddformbutton = document.querySelector('.popup__close-button_add-mesto');
+const addButton = document.querySelector('.profile__add-button');
+const popupAdd = document.querySelector('.popup_add-mesto');
+const addForm = document.querySelector('.popup__form_add-mesto');
+const closeAddFormButton = document.querySelector('.popup__close-button_add-mesto');
 const mestoNameInput = document.querySelector('.popup__form-input_type_mesto-name')
 const mestoUrlInput = document.querySelector('.popup__form-input_type_url')
 
@@ -91,8 +91,8 @@ function closeViaOverlay(evt) {
 
 function openPopupProfile() {
 openPopup(popupProfile)
-nameInput.value = profilename.textContent
-jobInput.value = profiledescription.textContent
+nameInput.value = profileName.textContent
+jobInput.value = profileDescription.textContent
 }
 
 function closePopupProfile() {
@@ -101,14 +101,14 @@ function closePopupProfile() {
 
 function handleFormSubmit (evt) {
     evt.preventDefault();
-    profilename.textContent = nameInput.value
-    profiledescription.textContent = jobInput.value
+    profileName.textContent = nameInput.value
+    profileDescription.textContent = jobInput.value
     closePopupProfile()
 }
 
 
-editbutton.addEventListener('click', openPopupProfile);
-closeformbutton.addEventListener('click', closePopupProfile);
+editButton.addEventListener('click', openPopupProfile);
+closeFormButton.addEventListener('click', closePopupProfile);
 editForm.addEventListener('submit', handleFormSubmit); 
 
 
@@ -117,15 +117,15 @@ editForm.addEventListener('submit', handleFormSubmit);
 
 
 function openaddform() {
-  openPopup(popupadd)
+  openPopup(popupAdd)
 }
     
 function closeaddform() {
-  closePopup(popupadd)
+  closePopup(popupAdd)
 }
     
-addbutton.addEventListener('click', openaddform);
-closeaddformbutton.addEventListener('click', closeaddform);
+addButton.addEventListener('click', openaddform);
+closeAddFormButton.addEventListener('click', closeaddform);
     
 
 
@@ -210,12 +210,12 @@ function handleAddFormSubmit (evt) {
 
 
 
-addform.addEventListener('submit', handleAddFormSubmit); 
+addForm.addEventListener('submit', handleAddFormSubmit); 
 
 const validationEditForm = new FormValidator(validationConfig, editForm);
 validationEditForm.enableValidation()
 
-const validationAddForm = new FormValidator(validationConfig, addform);
+const validationAddForm = new FormValidator(validationConfig, addForm);
 validationAddForm.enableValidation()
 
 
