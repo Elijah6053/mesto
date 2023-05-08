@@ -57,8 +57,8 @@ const mestoUrlInput = document.querySelector('.popup__form-input_type_url')
 // const elements = document.querySelector('.elements');
 
 const popupView = document.querySelector('.popup_type_view');
-const popupViewName = document.querySelector('.popup__mesto-name');
-const popupViewimg = document.querySelector('.popup__mesto-image');
+// const popupViewName = document.querySelector('.popup__mesto-name');
+// const popupViewimg = document.querySelector('.popup__mesto-image');
 
 // Открытие попапа
 
@@ -183,18 +183,26 @@ viewCloseButton.addEventListener('click', closePopupView);
   
 const elementsList = new ElementsList('.elements')
 
+function createCard(elementName, elementUrl, templateSelector) {
+  // тут создаете карточку и возвращаете ее
+  const card = new ElementsListItem(elementName, elementUrl, templateSelector).getCard();
+  return card 
+}
+
 for (let i = 0; i < initialCards.length; i++) {
-    let elementName = initialCards[i].name;
-    let elementUrl = initialCards[i].link;
-    let card = new ElementsListItem(elementName, elementUrl).getCard();
+    const elementName = initialCards[i].name;
+    const elementUrl = initialCards[i].link;
+    // const card = new ElementsListItem(elementName, elementUrl, '#mesto-template').getCard();
+    const card = createCard(elementName, elementUrl, '#mesto-template')
     elementsList.addCard(card);
   }
 
 function handleAddFormSubmit (evt) {
   evt.preventDefault();
-  let elementName = mestoNameInput.value
-  let elementUrl = mestoUrlInput.value
-  let card = new ElementsListItem(elementName, elementUrl).getCard();
+  const elementName = mestoNameInput.value
+  const elementUrl = mestoUrlInput.value
+  // const card = new ElementsListItem(elementName, elementUrl, '#mesto-template').getCard();
+  const card = createCard(elementName, elementUrl, '#mesto-template')
   elementsList.addCard(card);
   closeaddform();
   evt.target.reset()
@@ -204,11 +212,11 @@ function handleAddFormSubmit (evt) {
 
 addform.addEventListener('submit', handleAddFormSubmit); 
 
-const validation1 = new FormValidator(validationConfig, '.popup__form_add-mesto');
-validation1.enableValidation()
+const validationEditForm = new FormValidator(validationConfig, editForm);
+validationEditForm.enableValidation()
 
-const validation2 = new FormValidator(validationConfig, '.popup__form_edit-profile');
-validation2.enableValidation()
+const validationAddForm = new FormValidator(validationConfig, addform);
+validationAddForm.enableValidation()
 
 
 export {openPopup};

@@ -1,35 +1,37 @@
 class FormValidator {
-    constructor (validationConfig, formSelector) {
+    constructor (validationConfig, form) {
         this._inputSelector = validationConfig.inputSelector;
         this._submitButtonSelector = validationConfig.submitButtonSelector;
         this._inactiveButtonClass = validationConfig.inactiveButtonClass;
         this._invalidInputClass = validationConfig.invalidInputClass;
-        this._formSelector = formSelector;
+        this._form = form;
+
+
+        this._formButton = this._form.querySelector(this._submitButtonSelector)
         // console.log(this._formSelector)
     }
 
     enableValidation () {
       // console.log(this._formSelector)
-      const form = document.querySelector(this._formSelector)
-      form.addEventListener('submit', (evt) => {
-          const formButton = form.querySelector(this._submitButtonSelector)
+      this._form.addEventListener('submit', (evt) => {
+          // this.formButton = this._form.querySelector(this._submitButtonSelector)
           this._disableButton(formButton, this._inactiveButtonClass)
         })
-        this._setEventListeners(form, this._inputSelector, this._submitButtonSelector, this._inactiveButtonClass)
+        this._setEventListeners(this._form, this._inputSelector, this._submitButtonSelector, this._inactiveButtonClass)
     }
 
     _setEventListeners (formToValidate, inputSelector, submitButtonSelector, inactiveButtonClass) {
-      const formInputs = Array.from(formToValidate.querySelectorAll(inputSelector))
-      const formButton = formToValidate.querySelector(submitButtonSelector)
-      this._disableButton(formButton, this._inactiveButtonClass)
-      formInputs.forEach(input => {
+      this._formInputs = Array.from(formToValidate.querySelectorAll(inputSelector))
+      // const formButton = formToValidate.querySelector(submitButtonSelector)
+      this._disableButton(this._formButton, this._inactiveButtonClass)
+      this._formInputs.forEach(input => {
           input.addEventListener('input', () => {
             this._checkInputValidity(input, this._invalidInputClass)
-          if (this._hasInvalidInput(formInputs)) {
-            this._disableButton(formButton, this._inactiveButtonClass)
+          if (this._hasInvalidInput(this._formInputs)) {
+            this._disableButton(this._formButton, this._inactiveButtonClass)
           }
               else {
-              this._enableButton(formButton, this._inactiveButtonClass)
+              this._enableButton(this._formButton, this._inactiveButtonClass)
           }
         })
     })

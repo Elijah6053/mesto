@@ -38,15 +38,16 @@ class ElementsList {
 }
 
 class ElementsListItem {
-  _template = document.querySelector('#mesto-template').content;
+  
 
-  constructor (name, link) {
+  constructor (name, link, templateSelector) {
       this._name = name;
       this._link = link;
+      this._template = document.querySelector(templateSelector).content;
   }
 
   _onLike = () => {
-    this._card.querySelector('.elements__like-button').classList.toggle('elements__like-button_acitve');
+    this._likeButton.classList.toggle('elements__like-button_acitve');
   }
 
   _onDelete = () => {
@@ -54,13 +55,13 @@ class ElementsListItem {
   }
 
   _onPopup = () => {
-    const popupView = document.querySelector('.popup_type_view');
-    const popupViewName = document.querySelector('.popup__mesto-name');
-    const popupViewimg = document.querySelector('.popup__mesto-image'); 
-    popupViewimg.alt = this._name;
-    popupViewimg.src = this._link;
-    popupViewName.textContent = this._name;
-    openPopup(popupView)
+    this._popupView = document.querySelector('.popup_type_view');
+    this._popupViewName = document.querySelector('.popup__mesto-name');
+    this._popupViewimg = document.querySelector('.popup__mesto-image'); 
+    this._popupViewimg.alt = this._name;
+    this._popupViewimg.src = this._link;
+    this._popupViewName.textContent = this._name;
+    openPopup(this._popupView)
   }
 
   _createCard () {
@@ -68,6 +69,7 @@ class ElementsListItem {
       this._card.querySelector('.elements__photo').src = this._link;
       this._card.querySelector('.elements__photo').alt = this._name;
       this._card.querySelector('.elements__text').textContent = this._name;
+      this._likeButton = this._card.querySelector('.elements__like-button')
 
       this._setEventListeners();
   }
